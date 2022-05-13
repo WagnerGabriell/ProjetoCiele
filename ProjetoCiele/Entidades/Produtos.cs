@@ -10,6 +10,6 @@ namespace ProjetoCiele.Entidades
         public int Id { get; set; }
         public string nome { get; set; }
         public string descricao { get; set; }
-        public int preco { get; set; }
+        public decimal preco { get; set; }
     }
 }
