@@ -11,6 +11,7 @@ namespace ProjetoCiele
     {
         public Contexto (DbContextOptions<Contexto> options) : base(options){}
         public DbSet<Produtos> PRODUTOS { get; set; }
+        public DbSet<Usuario> USUARIOS { get; set; }
 
     }
 }
