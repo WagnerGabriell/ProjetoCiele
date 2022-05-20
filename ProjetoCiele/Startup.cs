@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using MySql.EntityFrameworkCore;
 using MySql.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.CookiePolicy;
 
 namespace ProjetoCiele
 {
@@ -27,6 +28,12 @@ namespace ProjetoCiele
         {
             services.AddControllersWithViews();
             services.AddDbContext<Contexto>(a => a.UseMySQL("Server=localhost;Database=RA;Uid=root;Pwd=;"));
+            services.AddAuthentication("CookieAuthentication")
+              .AddCookie("CookieAuthentication", options =>
+              {
+                  options.AccessDeniedPath = "/Login/Ops/";
+                  options.LoginPath = "/Login/Entrar";
+              });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,6 +52,7 @@ namespace ProjetoCiele
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {

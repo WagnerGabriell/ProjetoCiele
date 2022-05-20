@@ -5,9 +5,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.CookiePolicy;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ProjetoCiele.Entidades
 {
+    [Authorize(AuthenticationSchemes = "CookieAuthentication")]
     public class UsuariosController : Controller
     {
         private readonly Contexto db;

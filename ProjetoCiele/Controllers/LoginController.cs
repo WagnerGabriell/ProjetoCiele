@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using ProjetoCiele.Entidades;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.CookiePolicy;
 
 namespace ProjetoCiele.Controllers
 {
@@ -21,10 +23,10 @@ namespace ProjetoCiele.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<ActionResult> Entrar(string Email, string senha)
+        public async Task<ActionResult> Entrar(string email, string senha)
         {
             Entidades.Usuario usuarioLogado =
-                db.USUARIOS.Where(a => a.Email == Email
+                db.USUARIOS.Where(a => a.Email == email
                 && a.Senha == senha).FirstOrDefault();
             if (usuarioLogado == null)
             {
