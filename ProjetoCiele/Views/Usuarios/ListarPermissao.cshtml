@@ -1,0 +1,21 @@
+﻿@model ProjetoCiele.Models.ListarPermisaoModel
+<div class="row">
+        <div class="col-6">
+            <ul class="list list-group">
+                @foreach(var item in Model.PermissaoUsuarios)
+            {
+                <li class="list list-group">@item.permissao.nome</li>
+            }
+            </ul>
+        </div>
+        <div class="col-6">
+            <ul class="list list-group">
+                @foreach (var item in Model.TodasPermissoes)
+                {
+                    <li class="list list-group"><a href="/PermissaoUsuarioController/Adicionar/@Model.UsuarioId/@item.id" class="btn btn-success">+</a>
+                    @item.nome
+                    </li>
+                }
+            </ul>
+        </div>
+</div>

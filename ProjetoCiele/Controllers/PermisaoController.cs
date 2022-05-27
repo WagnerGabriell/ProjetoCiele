@@ -1,66 +1,55 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using ProjetoCiele.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ProjetoCiele.Entidades;
-using Microsoft.AspNetCore.Authorization;
 
 namespace ProjetoCiele.Controllers
 {
-    [Authorize(AuthenticationSchemes = "CookieAuthentication", Roles = "administrador")]
-    public class ProdutosController : Controller
+    public class PermisaoController : Controller
     {
+        // GET: PermisaoController
         private readonly Contexto db;
-        public ProdutosController(Contexto contexto)
+        public PermisaoController(Contexto contexto)
         {
             db = contexto;
-            
         }
-        // GET: ProdutosController
         public ActionResult Index()
         {
-
-            return View(db.PRODUTOS.ToList());
+            return View(db.PERMISAO.ToList());
         }
 
-        // GET: ProdutosController/Details/5
+        // GET: PermisaoController/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: ProdutosController/Create
-        public ActionResult Create(){
-
+        // GET: PermisaoController/Create
+        public ActionResult Create()
+        {
             return View();
         }
 
-        // POST: ProdutosController/Create
+        // POST: PermisaoController/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(Produtos collection)
+        public ActionResult Create(Permisao dadosTela)
         {
-            try
-            {
-                db.PRODUTOS.Add(collection);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            db.PERMISAO.Add(dadosTela);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+
         }
 
-        // GET: ProdutosController/Edit/5
+        // GET: PermisaoController/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: ProdutosController/Edit/5
+        // POST: PermisaoController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -75,13 +64,13 @@ namespace ProjetoCiele.Controllers
             }
         }
 
-        // GET: ProdutosController/Delete/5
+        // GET: PermisaoController/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: ProdutosController/Delete/5
+        // POST: PermisaoController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)

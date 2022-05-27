@@ -7,10 +7,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.CookiePolicy;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.EntityFrameworkCore;
 
 namespace ProjetoCiele.Entidades
 {
-    [Authorize(AuthenticationSchemes = "CookieAuthentication")]
+    //[Authorize(AuthenticationSchemes = "CookieAuthentication", Roles ="administrador")]
     public class UsuariosController : Controller
     {
         private readonly Contexto db;
@@ -18,6 +19,15 @@ namespace ProjetoCiele.Entidades
         public UsuariosController(Contexto contexto)
         {
             db = contexto;
+        }
+
+        public IActionResult ListarPermissao(int id)
+        {
+            ListarPermisaoModel model = new ListarPermisaoModel();
+            model.TodasPermissoes = db.PERMISAO.ToList();
+            model.UsuarioId = id;
+            model.PermissaoUsuarios = db.PERMISSAO_USUARIO.Where(a=>a.Usuarioid == id).Include(a => a.permissao).ToList();
+            return View(model);
         }
 
         public IActionResult Index()
