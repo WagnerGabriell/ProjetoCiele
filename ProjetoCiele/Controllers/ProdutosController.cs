@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace ProjetoCiele.Controllers
 {
-    [Authorize(AuthenticationSchemes = "CookieAuthentication", Roles = "administrador")]
+ 
     public class ProdutosController : Controller
     {
         private readonly Contexto db;
@@ -32,6 +32,7 @@ namespace ProjetoCiele.Controllers
         }
 
         // GET: ProdutosController/Create
+        [Authorize(AuthenticationSchemes = "CookieAuthentication",Roles ="administrador")]
         public ActionResult Create(){
 
             return View();

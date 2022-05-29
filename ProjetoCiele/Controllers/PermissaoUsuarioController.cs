@@ -15,12 +15,12 @@ namespace ProjetoCiele.Controllers
         {
             db = contexto;
         }
-        [HttpGet("[controller]/[action]{Usuariosid}/{Permissaoid}")]
-        public IActionResult Adcionar(int Usuarioid, int Permissaoid)
+        [HttpGet("[controller]/[action]/{UsuariosId}/{PermissaoId}")]
+        public IActionResult Adicionar(int UsuarioId, int PermissaoId)
         {
             PermissaoUsuario novo = new PermissaoUsuario();
-            novo.Usuarioid = Usuarioid;
-            novo.Permissaoid = Permissaoid;
+            novo.UsuarioId = UsuarioId;
+            novo.Permissaoid = PermissaoId;
             db.PERMISSAO_USUARIO.Add(novo);
             db.SaveChanges();
             return Redirect("/Usuarios");

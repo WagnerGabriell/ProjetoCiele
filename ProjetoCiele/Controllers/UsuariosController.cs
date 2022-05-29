@@ -26,7 +26,7 @@ namespace ProjetoCiele.Entidades
             ListarPermisaoModel model = new ListarPermisaoModel();
             model.TodasPermissoes = db.PERMISAO.ToList();
             model.UsuarioId = id;
-            model.PermissaoUsuarios = db.PERMISSAO_USUARIO.Where(a=>a.Usuarioid == id).Include(a => a.permissao).ToList();
+            model.PermissaoUsuarios = db.PERMISSAO_USUARIO.Where(a=>a.UsuarioId == id).Include(a => a.permissao).ToList();
             return View(model);
         }
 
