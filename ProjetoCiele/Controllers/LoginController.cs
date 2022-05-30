@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authentication;
 using ProjetoCiele.Entidades;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.CookiePolicy;
+using Microsoft.EntityFrameworkCore;
 
 namespace ProjetoCiele.Controllers
 {
@@ -39,7 +40,11 @@ namespace ProjetoCiele.Controllers
                 new Claim(ClaimTypes.Name, usuarioLogado.Nome));
             claims.Add(
                 new Claim(ClaimTypes.Sid, usuarioLogado.Id.ToString()));
-
+            foreach (var item in db.PERMISSAO_USUARIO.Where(a => a.UsuarioId == usuarioLogado.Id).Include(a => a.permissao))
+            {
+                claims.Add(
+               new Claim(ClaimTypes.Role, item.permissao.rules));
+            }
             var UserIdentity = new ClaimsIdentity(claims, "Acesso");
 
             ClaimsPrincipal principal = new ClaimsPrincipal(UserIdentity);
