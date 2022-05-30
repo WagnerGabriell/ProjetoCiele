@@ -16,14 +16,23 @@ namespace ProjetoCiele.Controllers
             db = contexto;
         }
         [HttpGet("[controller]/[action]/{UsuariosId}/{PermissaoId}")]
-        public IActionResult Adicionar(int UsuarioId, int PermissaoId)
+        public IActionResult Adicionar(int UsuariosId, int PermissaoId)
         {
             PermissaoUsuario novo = new PermissaoUsuario();
-            novo.UsuarioId = UsuarioId;
+            novo.UsuarioId = UsuariosId;
             novo.Permissaoid = PermissaoId;
             db.PERMISSAO_USUARIO.Add(novo);
             db.SaveChanges();
-            return Redirect("/Usuarios");
+            return Redirect("/Usuarios/ListarPermissao/" + UsuariosId);
+        }
+
+        public IActionResult Remover(int id)
+        {
+            PermissaoUsuario item = db.PERMISSAO_USUARIO.Find(id);
+            int usuarioId = item.UsuarioId;
+            db.PERMISSAO_USUARIO.Remove(item);
+            db.SaveChanges();
+            return Redirect("/Usuarios/ListarPermissao/" + usuarioId);
         }
     }
 }

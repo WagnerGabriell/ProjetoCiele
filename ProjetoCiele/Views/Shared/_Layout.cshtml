@@ -21,26 +21,42 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-dark dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                                Administrador
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item nav-link text-dark" href="/Permisao/Index">Permissões</a>
+                            </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Produtos" asp-action="Create">Criar Produtos</a>
+
+                         <li class="nav-item dropdown">
+                            <a class="nav-link text-dark dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                                Usuários
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item nav-link text-dark" href="/Usuarios/Create">Cadastrar</a>
+                                <a class="dropdown-item nav-link text-dark" href="/Usuarios/Index">Listar</a>
+                            </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Produtos" asp-action="Index">Listar Produtos</a>
+                          <li class="nav-item dropdown">
+                            <a class="nav-link text-dark dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                                Produtos
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item nav-link text-dark" href="/Produtos/Create">Cadastrar</a>
+                                <a class="dropdown-item nav-link text-dark" href="/Produtos/Index">Listar</a>
+                            </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Index">Listar Clientes</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Entrar">Logar</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Create">Cadastrar Usuarios</a>
-                        </li>
+                      
+                       
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Entregador" asp-action="Index">Entregador</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav mr-auto">
+                          <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Entrar">Logar</a>
                         </li>
                     </ul>
                 </div>

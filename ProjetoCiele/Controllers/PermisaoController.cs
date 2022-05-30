@@ -67,16 +67,10 @@ namespace ProjetoCiele.Controllers
         // GET: PermisaoController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
-        }
-
-        // POST: PermisaoController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
             try
             {
+                db.PERMISAO.Remove(db.PERMISAO.Find(id));
+                db.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -84,5 +78,7 @@ namespace ProjetoCiele.Controllers
                 return View();
             }
         }
+
+        
     }
 }
