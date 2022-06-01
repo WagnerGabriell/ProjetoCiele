@@ -32,7 +32,7 @@ namespace ProjetoCiele.Controllers
         }
 
         // GET: ProdutosController/Create
-        [Authorize(AuthenticationSchemes = "CookieAuthentication",Roles ="administrador")]
+        //[Authorize(AuthenticationSchemes = "CookieAuthentication",Roles ="administrador")]
         public ActionResult Create(){
 
             return View();
