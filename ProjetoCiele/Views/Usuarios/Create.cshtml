@@ -8,73 +8,104 @@
         background-size: cover;
         padding: 10px;
     }
-    #login {
+
+    .tela_cadastro {
+        background: #ffffff none repeat scroll 0 0;
+        border-radius: 5px;
+        margin: 0px auto;
+        max-width: 90%;
+        padding: 50px 70px 70px 71px;
+    }
+
+    .login {
         background: #ffffff none repeat scroll 0 0;
         border-radius: 5px;
         margin: 10px auto 30px;
         max-width: 38%;
         padding: 50px 70px 70px 71px;
     }
-    label{
+
+    label {
+        color: black;
+    }
+
+    h3 {
+        color: black;
+        text-align:center;
+        margin-right:62px;
+    }
+
+    a {
+        text-decoration: none;
         color: white;
     }
-    h3{
-        color:white;
+
+    #form{
+        display:flex;
+        flex-direction:column;
+        justify-content:center; 
+        align-items:center;
     }
-    a{
-        text-decoration:none;
-        color: white;
+
+    .form-group input{
+        width: 500px;
     }
+
+    .form-group {
+        text-align: center;
+    }
+    
 </style>
 @model ProjetoCiele.Entidades.Usuario
 
 @{
     ViewData["Title"] = "Cadastro de Usuário";
 }
-<body>
-    <h3>Cadastrar Usuário</h3>
-    <hr />
-    <div id=" login">
-        <div class="row">
-            <div class="col-6">
-                <form id="form" asp-action="Create">
+ <body>
+    <div class="tela_cadastro">
+        <h3>Cadastrar Usuário</h3>
+        <hr />
+        <div class=" login">
+            <div class="row">
+                <div class="col-6">
+                    <form id="form" asp-action="Create">
 
-                    <div class="form-group">
-                        <label asp-for="Nome" class="control-label"></label>
-                        <input asp-for="Nome" class="form-control" />
-                        <span asp-validation-for="Nome" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Email" class="control-label"></label>
-                        <input asp-for="Email" class="form-control" />
-                        <span asp-validation-for="Email" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Senha" class="control-label"></label>
-                        <input asp-for="Senha" class="form-control" />
-                        <span asp-validation-for="Senha" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="endereco" class="control-label"></label>
-                        <input asp-for="endereco" class="form-control" />
-                        <span asp-validation-for="endereco" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="telefone" class="control-label"></label>
-                        <input asp-for="telefone" class="form-control" />
-                        <span asp-validation-for="telefone" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" value="Salvar" class="btn btn-primary" />
-                    </div>
-                </form>
+                        <div class="form-group">
+                            <label asp-for="Nome" class="control-label"></label>
+                            <input asp-for="Nome" class="form-control" />
+                            <span asp-validation-for="Nome" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Email" class="control-label"></label>
+                            <input asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Senha" class="control-label"></label>
+                            <input asp-for="Senha" class="form-control" />
+                            <span asp-validation-for="Senha" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="endereco" class="control-label"></label>
+                            <input asp-for="endereco" class="form-control" />
+                            <span asp-validation-for="endereco" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="telefone" class="control-label"></label>
+                            <input asp-for="telefone" class="form-control" />
+                            <span asp-validation-for="telefone" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Salvar" class="btn btn-primary" />
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
-
-    <div>
-        <a asp-action="Index">Back to List</a>
-    </div>
+        <div>
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </div> <!---->
 </body>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
