@@ -9,7 +9,14 @@
         margin: 0;
         border-color: #000000 !important;
     }
-
+    #menu{
+        display:none;
+    }
+    #buggerButton{
+        color: black;
+        background: none;
+        border: none;
+    }
     .custom-color {
         background-color: #ffd900 !important;
         border-color: #000000 !important;
@@ -60,7 +67,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - ProjetoCiele</title>
+    <title>@ViewData["Title"] - </title>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
@@ -72,8 +79,9 @@
         <header>
                 <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-warning border-bottom box-shadow mb-3">
                     <!-- até aqui-->
-                    <div class="container">
-                        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ProjetoCiele</a>
+                    <button id="buggerButton" onclick ="displayMenu()">☰</button>
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Cardapio</a>
+                    <div id = "menu" class="container">
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                                 aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
@@ -115,7 +123,10 @@
                                 <li class="nav-item">
                                     <a class="nav-link text-dark" asp-area="" asp-controller="Entregador" asp-action="Index">Entregador</a>
                                 </li>
-                            </ul>
+                        </div>
+                    </div>
+                    <div class="d-flex ml-auto">
+                        </ul>
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item">
                                     <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Entrar">Logar</a>
@@ -124,7 +135,6 @@
                                     <a class="nav-link text-dark" href="/Usuarios/Create">Cadastrar</a>
                                 </li>
                             </ul>
-                        </div>
                     </div>
         </nav>
         </header>
@@ -141,6 +151,19 @@
         </footer>
         @await RenderSectionAsync("Scripts", required: false)
         <script>
+
+            function displayMenu(){
+                var menu = document.getElementById("menu");
+                if (menu.style.display === "none"){
+                    menu.style.display = "block";
+                }else{
+                    menu.style.display = "none";
+                }
+
+            }
+            
+
+
             window.addEventListener('DOMContentLoaded', event => {
 
                 // Toggle the side navigation
