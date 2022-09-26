@@ -4,7 +4,8 @@
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
-        padding: 10px;
+        padding: 0px;
+        margin-bottom: 50px;
     }
 
     .form-heading {
@@ -37,9 +38,10 @@
     .main-div {
         background: #ffffff none repeat scroll 0 0;
         border-radius: 5px;
-        margin: 10px auto 30px;
+        margin: 20px auto 50px;
         max-width: 38%;
         padding: 50px 70px 70px 71px;
+        margin-top:100px;
     } 
 
     .login-form .form-group {
@@ -88,7 +90,7 @@
        a {
             color: #444444;
             font-size: 13px;
-            text-decoration: none;
+            
         }
      h6{
         color: #444444;
@@ -115,7 +117,7 @@
                         </div>
                     }
                     <form id="Login" action="/Login/Entrar" method="post">
-
+                        <img src = "~/img/logo-ciely.png" width = "80" class = "mb-2">
                         <div class="form-group">
                             <input type="text" name="email" class="form-control" id="inputEmail" placeholder="E-mail">
                         </div>
@@ -125,11 +127,10 @@
                         <button type="submit" class="btn btn-primary">Login</button>
                           <div class="forgot">
                             <a href="reset.html">Esqueceu sua senha?</a>
-                            <br />
                         </div>
                     </form>
                 </div>
-                <h6>Ainda não tem conta ?</h6><a href="/Usuarios/Create">Cadastrar</a>
+                <h6>Ainda não tem conta ? <a href="/Usuarios/Create">Cadastrar</a></h6>
         </div>
     </div>
 </div>

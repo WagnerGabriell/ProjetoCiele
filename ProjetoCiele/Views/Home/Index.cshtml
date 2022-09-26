@@ -1,4 +1,16 @@
-﻿@{
+﻿<style>
+    #serchBar{
+        margin-top: 10px;
+        margin-left:0px;
+        width: 100%;
+        background-color: #fab633;
+        color: #000;
+        border-color: transparent;
+        border-radius: 25px;
+    }
+</style>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -19,7 +31,10 @@
     <link href="fontawesome/css/all.min.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class = "container">        
+        <input type = "text" id = "serchBar" placeholder = "Pesquisar">
+    </div>
+   <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
             <li class="nav-item active">
                 <a class="nav-link" href="#!">Login</a>
@@ -44,69 +59,8 @@
                 </div>
             </li>
         </ul>
-    </div>
+    </div>-->
 
-    <!-- Page content-->
-    <!--
-    <main>
-        <header>CARDAPIO</header>
-        <br>
-        <section id="produtos">
-            <section class="produto">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9ZOvOBWbbKLS2_bKct3gJAMf2krmZ7lUZxQ&usqp=CAU">
-                <p>
-                    X TUDO<br>Pão, Hamburger, Presunto, Mussarela<br>
-                    Bacon, Alface, Ovo, Tomate, Requeijão Scala
-                </p>
-            </section>
-            <section class="produto">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9ZOvOBWbbKLS2_bKct3gJAMf2krmZ7lUZxQ&usqp=CAU">
-                <p>
-                    X TUDO<br>Pão, Hamburger, Presunto, Mussarela<br>
-                    Bacon, Alface, Ovo, Tomate, Requeijão Scala
-                </p>
-            </section>
-            <section class="produto">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9ZOvOBWbbKLS2_bKct3gJAMf2krmZ7lUZxQ&usqp=CAU">
-                <p>
-                    X TUDO<br>Pão, Hamburger, Presunto, Mussarela<br>
-                    Bacon, Alface, Ovo, Tomate, Requeijão Scala
-                </p>
-            </section>
-            <section class="produto">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9ZOvOBWbbKLS2_bKct3gJAMf2krmZ7lUZxQ&usqp=CAU">
-                <p>
-                    X TUDO<br>Pão, Hamburger, Presunto, Mussarela<br>
-                    Bacon, Alface, Ovo, Tomate, Requeijão Scala
-                </p>
-            </section>
-            <section class="produto">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9ZOvOBWbbKLS2_bKct3gJAMf2krmZ7lUZxQ&usqp=CAU">
-                <p>
-                    X TUDO<br>Pão, Hamburger, Presunto, Mussarela<br>
-                    Bacon, Alface, Ovo, Tomate, Requeijão Scala
-                </p>
-            </section>
-            <section class="produto">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9ZOvOBWbbKLS2_bKct3gJAMf2krmZ7lUZxQ&usqp=CAU">
-                <p>
-                    X TUDO<br>Pão, Hamburger, Presunto, Mussarela<br>
-                    Bacon, Alface, Ovo, Tomate, Requeijão Scala
-                </p>
-            </section>
-            <section class="produto">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9ZOvOBWbbKLS2_bKct3gJAMf2krmZ7lUZxQ&usqp=CAU">
-                <p>
-                    X TUDO<br>Pão, Hamburger, Presunto, Mussarela<br>
-                    Bacon, Alface, Ovo, Tomate, Requeijão Scala
-                </p>
-            </section>
-            <section class="produto">
-                <img src="">
-                <p>Porção Batata Cheddar e Bacon</p>
-            </section>
-        </section>
-    </main> -->
     <footer>
     </footer>
     <!-- Bootstrap core JS-->
