@@ -1,4 +1,5 @@
 ﻿<style>
+    
     nav {
         padding: 0px;
         justify-content: space-between;
@@ -11,9 +12,13 @@
     }
     #menu{
         margin: 0;
-        display:none;
+        display:block;
         background-color: #d9534f;
         color:white;
+        width: 0px;
+        overflow-x: hidden;
+        transition: 0.5s;
+        position: fixed;
     }
     #buggerButton{
         width: 50px;
@@ -23,15 +28,16 @@
         border: none;
         border-radius: 25px;
     }
+    #buggerButton :hover{
+        background-color:#d9534f;
+        transition: 0.5s;
+    }
     .custom-color {
         background-color: #ffd900 !important;
         border-color: #000000 !important;
     }
 
-    img {
-        width: 60px;
-        margin-left: 10px;
-    }
+ 
 
     /* MAIN */
     main > header {
@@ -67,6 +73,8 @@
     .produto {
         margin: 5px;
     }
+   
+
 </style>
 <!DOCTYPE html>
 <html lang="en">
@@ -86,11 +94,11 @@
                 <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-warning">
                     <!-- até aqui-->
                     <button id="buggerButton" onclick ="displayMenu()">☰</button>
-                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Cardapio</a>
+                    <a class="navbar-brand ml-2" asp-area="" asp-controller="Home" asp-action="Index">Cardapio</a>
                     <div class="d-flex ml-auto">
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Entrar">Logar</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Entrar"><img src = "https://cdn.icon-icons.com/icons2/788/PNG/512/user-1_icon-icons.com_65106.png" width = "20">Login</a>
                                 </li>
                                 <li>
                                     <a class="nav-link text-dark" href="/Usuarios/Create">Cadastrar</a>
@@ -98,24 +106,24 @@
                             </ul>
                     </div>
         </nav>
-        <div id = "menu" class="container col-1 w-30 p-1 ml-0 mt-0">
+        <div id = "menu" class="container col-1 p-0 ml-0 mt-0">
 
                         <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                             <ul class="navbar-nav flex-grow-1">
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                                    <a class="nav-link text-white p-3" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link text-dark dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                                    <a class="nav-link dropdown-toggle text-white p-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
                                         Administrador
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item nav-link text-dark" href="/Permisao/Index">Permissões</a>
+                                        <a class="dropdown-item nav-link text-black" href="/Permisao/Index">Permissões</a>
                                     </div>
                                 </li>
-
+                                
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link text-dark dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                                    <a class="nav-link dropdown-toggle text-white p-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
                                         Usuários
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -124,7 +132,7 @@
                                     </div>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link text-dark dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                                    <a class="nav-link dropdown-toggle text-white p-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
                                         Produtos
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -132,10 +140,8 @@
                                         <a class="dropdown-item nav-link text-dark" href="/Produtos/Index">Listar</a>
                                     </div>
                                 </li>
-
-
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Entregador" asp-action="Index">Entregador</a>
+                                    <a class="nav-link text-white p-3" asp-area="" asp-controller="Entregador" asp-action="Index">Entregador</a>
                                 </li>
                                 </ul>
         </div>
@@ -159,18 +165,16 @@
             function displayMenu(){
                 var menu = document.getElementById("menu");
                 var bButton = document.getElementById("buggerButton");
-                if (menu.style.display === "none"){
-                    menu.style.display = "block";
+                if (menu.style.width == 0 || menu.style.width == "0px"){
                     bButton.style.backgroundColor = "#d9534f";
                     bButton.style.color = "white";
+                    menu.style.width = "250px";
                 }else{
-                    menu.style.display = "none";
                     bButton.style.background = "none"
-                    bButton.style.color = "white";
+                    bButton.style.color = "black";
+                    menu.style.width = "0";
                 }
-
-            }
-            
+            }       
 
 
             window.addEventListener('DOMContentLoaded', event => {
@@ -184,7 +188,6 @@
                         localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
                     });
                 }
-
             });
         </script>
 </body>
