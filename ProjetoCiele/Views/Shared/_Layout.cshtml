@@ -96,6 +96,10 @@
                     <!-- até aqui-->
                     <button id="buggerButton" onclick ="displayMenu()">☰</button>
                     <a class="navbar-brand ml-2" asp-area="" asp-controller="Home" asp-action="Index">Cardapio</a>
+                     <div class="navbar-nav d-flex float-right">
+                        <span class="navbar-nav input-group-text border-warning bg-warning" id="addon-wrapping"><img src="~/img/icons8-pesquisar-30.png" width="20" ></span>
+                        <input type="text" class="form-control border-0 bg-warning col-10" id = "SerchBar" placeholder="Pesquisar"aria-describedby="inputGroup-sizing-default">
+                    </div>
                     <div class="d-flex ml-auto">
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item">
@@ -109,10 +113,10 @@
                         <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                             <ul class="navbar-nav flex-grow-1">
                                 <li class="nav-item">
-                                    <a class="nav-link text-white p-3" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                                    <a class="nav-link text-white p-4" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle text-white p-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                                    <a class="nav-link dropdown-toggle text-white p-1" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
                                         Administrador
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -166,7 +170,7 @@
                 if (menu.style.width == 0 || menu.style.width == "0px"){
                     bButton.style.backgroundColor = "#d9534f";
                     bButton.style.color = "white";
-                    menu.style.width = "250px";
+                    menu.style.width = "350px";
                 }else{
                     bButton.style.background = "none"
                     bButton.style.color = "black";
