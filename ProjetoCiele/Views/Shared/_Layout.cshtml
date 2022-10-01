@@ -1,80 +1,5 @@
 ﻿<style>
     
-    nav {
-        padding: 0px;
-        justify-content: space-between;
-        align-items: center;
-        position: fixed;
-        width: 100%;
-        top: 0;
-        margin: 0px;
-        border-color: #fab633;
-    }
-    #menu{
-        height: 100%;
-        margin: 0;
-        display:block;
-        background-color: #d9534f;
-        color:white;
-        width: 0px;
-        overflow-x: hidden;
-        transition: 0.5s;
-        position: fixed;
-    }
-    #buggerButton{
-        width: 50px;
-        height: 50px;
-        color: black;
-        background: none;
-        border: none;
-        border-radius: 25px;
-    }
-    #buggerButton :hover{
-        background-color:#d9534f;
-        transition: 0.5s;
-    }
-    .custom-color {
-        background-color: #ffd900 !important;
-        border-color: #000000 !important;
-    }
-
- 
-
-    /* MAIN */
-    main > header {
-        color: #e9003e;
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', sans-serif;
-        font-weight: 800;
-    }
-
-    .produto {
-        margin-bottom: 20px;
-        cursor: pointer;
-    }
-
-        .produto p {
-            background-color: #f30041;
-            color: whitesmoke;
-            padding: 5px 10px;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-        }
-
-    section #produtos {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-    }
-
-    .produto img {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-    }
-
-    .produto {
-        margin: 5px;
-    }
-   
 
 </style>
 <!DOCTYPE html>
@@ -86,69 +11,68 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="js/layout.js"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/css/all.min.css"/>
+    <link href="css/Layout.css" rel=" Stylesheet"/>
 </head>
 <body>
-        <header>
-                <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-warning">
-                    <!-- até aqui-->
-                    <button id="buggerButton" onclick ="displayMenu()">☰</button>
-                    <a class="navbar-brand ml-2" asp-area="" asp-controller="Home" asp-action="Index">Cardapio</a>
-                     <div class="navbar-nav d-flex float-right">
-                        <span class="navbar-nav input-group-text border-warning bg-warning" id="addon-wrapping"><img src="~/img/icons8-pesquisar-30.png" width="20" ></span>
-                        <input type="text" class="form-control border-0 bg-warning col-10" id = "SerchBar" placeholder="Pesquisar"aria-describedby="inputGroup-sizing-default">
-                    </div>
-                    <div class="d-flex ml-auto">
-                            <ul class="navbar-nav mr-auto">
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Entrar"><img src = "https://cdn.icon-icons.com/icons2/788/PNG/512/user-1_icon-icons.com_65106.png" width = "20">Login</a>
-                                </li>
-                            </ul>
-                    </div>
-        </nav>
-        <div id = "menu" class="container col-1 p-0 ml-0 mt-0">
+    <header>
+        <nav class="navbar navbar-light amber lighten-4 mb-4 bg-warning">
 
-                        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                            <ul class="navbar-nav flex-grow-1">
-                                <li class="nav-item">
-                                    <a class="nav-link text-white p-4" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle text-white p-1" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-                                        Administrador
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item nav-link text-black" href="/Permisao/Index">Permissões</a>
-                                    </div>
-                                </li>
-                                
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle text-white p-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-                                        Usuários
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item nav-link text-dark" href="/Usuarios/Create">Cadastrar</a>
-                                        <a class="dropdown-item nav-link text-dark" href="/Usuarios/Index">Listar</a>
-                                    </div>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle text-white p-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-                                        Produtos
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item nav-link text-dark" href="/Produtos/Create">Cadastrar</a>
-                                        <a class="dropdown-item nav-link text-dark" href="/Produtos/Index">Listar</a>
-                                    </div>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-white p-3" asp-area="" asp-controller="Entregador" asp-action="Index">Entregador</a>
-                                </li>
-                                </ul>
-        </div>
-        </div>
+  <!-- Navbar brand -->
+  <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Cardapio</a>
 
+  <!-- Collapse button -->
+    <button class="navbar-toggler second-button border border-warning" type="button" data-toggle="collapse" data-target="#navbarSupportedContent20"
+    aria-controls="navbarSupportedContent20" aria-expanded="false" aria-label="Toggle navigation">
+    <div class="animated-icon2"><span></span><span></span><span></span></div>
+  </button>
+
+  <!-- Collapsible content -->
+  <div class="collapse navbar-collapse" id="navbarSupportedContent20">
+
+    <!-- Links -->
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link text-black ml-auto" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-black ml-auto" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+            Administrador
+        </a>
+        <div class="dropdown-menu bg-warning border border-warning" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item nav-link text-black ml-2" href="/Permisao/Index">Permissões</a>
+        </div>
+    </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-black ml-auto" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+            Usuários
+        </a>
+    <div class="dropdown-menu bg-warning border border-warning" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item nav-link text-black ml-2" href="/Usuarios/Create">Cadastrar</a>
+        <a class="dropdown-item nav-link text-black ml-2" href="/Usuarios/Index">Listar</a>
+    </div>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-black ml-auto" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+            Produtos
+        </a>
+    <div class="dropdown-menu bg-warning border border-warning" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item nav-link text-dark" href="/Produtos/Create">Cadastrar</a>
+        <a class="dropdown-item nav-link text-dark" href="/Produtos/Index">Listar</a>
+    </div>
+    </li>
+    <li class="nav-item bg-warning border border-warning">
+        <a class="nav-link text-black p-auto" asp-area="" asp-controller="Entregador" asp-action="Index">Entregador</a>
+    </li>
+    </ul>
+    <!-- Links -->
+
+  </div>
+  <!-- Collapsible content -->
+</nav>
         </header>
         <div class="container">
             <main role="main" class="pb-3">
