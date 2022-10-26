@@ -24,13 +24,10 @@ namespace ProjetoCiele.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<ActionResult> Entrar(string email, string senha)
-        {
+        public async Task<ActionResult> Entrar(string email, string senha){
             Entidades.Usuario usuarioLogado =
-                db.USUARIOS.Where(a => a.Email == email
-                && a.Senha == senha).FirstOrDefault();
-            if (usuarioLogado == null)
-            {
+                db.USUARIOS.Where(a => a.Email == email && a.Senha == senha).FirstOrDefault();
+            if (usuarioLogado == null){
                 TempData["erro"] = "Usuario e senha invalido";
                 return View();
             }
