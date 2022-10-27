@@ -4,9 +4,11 @@ using ProjetoCiele.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Security.Claims;
 using System.Linq;
 using System.Threading.Tasks;
 using ProjetoCiele.Entidades;
+using Microsoft.EntityFrameworkCore;
 
 namespace ProjetoCiele.Controllers
 {
@@ -14,6 +16,7 @@ namespace ProjetoCiele.Controllers
     {
         private readonly Contexto db;
         private readonly ILogger<HomeController> _logger;
+        public IList<Produtos> Produtos;
 
         public HomeController(ILogger<HomeController> logger, Contexto contexto){
             db = contexto;
@@ -34,6 +37,9 @@ namespace ProjetoCiele.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+        public async Task OnGetAsync(){
+            Produtos = await db.PRODUTOS.ToListAsync<Produtos>();
         }
     }
 }

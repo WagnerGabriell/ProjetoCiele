@@ -1,5 +1,7 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model ProjetoCiele.Controllers.HomeController;
+
+@{
+    ViewData["Title"] = "Pagina Principal";
 }
 
 <!DOCTYPE html>
@@ -33,7 +35,7 @@
 </div> *@
     </div>
     </div>
-    <!--CAROUSEL-->
+    <!--CAROUSEL PROMOÇÕES-->
  <div id="carouselExampleSlidesOnly" class="carousel slide mt-4" data-bs-ride="carousel">
     <ol id= "indicator" class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -52,8 +54,29 @@
     </div>
   </div>
 </div>
+
+<div class="row">
+  @foreach (var produtos in Model.Produtos){
+    <div class="col-sm-4">
+      <div class="card text-center bg-light mb-4">
+        <img src="" alt="">
+        <div class="card-header">
+          R$ @produtos.preco.ToString("F2")
+        </div>
+        <div class="card-body" style="height:124px;">
+          <h5 class="card-title">@produtos.nome</h5>
+          <p class="card-text">@produtos.descricao</p>
+        </div>
+        <div class="card-footer">
+          <div><a href="#" class="btn btn-primary">Adicionar ao Carrinho</a></div>
+        </div>
+      </div>
+    </div>
+  }
+</div>
+
 @* Lanches Card and Carousel *@
-<div class="w-100 bg-warning rounded-pill">
+<!--<div class="w-100 bg-warning rounded-pill">
   <h1 class="d-flex justify-content-center mt-5 mb-5 text-black">LANCHES</h1>
 </div>
 
@@ -230,7 +253,7 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
-</div>
+</div>-->
 
     <footer>
     </footer>
