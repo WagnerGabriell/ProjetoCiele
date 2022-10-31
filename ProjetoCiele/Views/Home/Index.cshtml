@@ -1,4 +1,5 @@
-﻿@model ProjetoCiele.Controllers.HomeController;
+﻿@model List<ProjetoCiele.Entidades.Produtos>;
+
 
 @{
     ViewData["Title"] = "Pagina Principal";
@@ -56,7 +57,7 @@
 </div>
 
 <div class="row">
-  @foreach (var produtos in Model.Produtos){
+  @foreach (var produtos in Model){
     <div class="col-sm-4">
       <div class="card text-center bg-light mb-4">
         <img src="" alt="">

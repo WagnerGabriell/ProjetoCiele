@@ -16,7 +16,7 @@ namespace ProjetoCiele.Controllers
     {
         private readonly Contexto db;
         private readonly ILogger<HomeController> _logger;
-        public IList<Produtos> Produtos;
+      
 
         public HomeController(ILogger<HomeController> logger, Contexto contexto){
             db = contexto;
@@ -25,7 +25,7 @@ namespace ProjetoCiele.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View( db.PRODUTOS.ToList() );
         }
 
         public IActionResult Privacy()
@@ -38,8 +38,6 @@ namespace ProjetoCiele.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-        public async Task OnGetAsync(){
-            Produtos = await db.PRODUTOS.ToListAsync<Produtos>();
-        }
+      
     }
 }
