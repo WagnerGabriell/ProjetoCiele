@@ -30,10 +30,10 @@ nav{
   border: none;
   border-radius: 25px;
 }
-#buggerButton :hover{
+/* #buggerButton :hover{
   background-color:#d9534f;
   transition: 0.5s;
-}
+} */
 .custom-color {
   background-color: #ffd900 !important;
   border-color: #000000 !important;
@@ -242,7 +242,7 @@ section #produtos {
     top: 21px;
     left: 8px;
   }
-  a:hover{
+  /* a:hover{
     background-color: #d9534f;
     border-radius: 25px;
-  }
+  } */

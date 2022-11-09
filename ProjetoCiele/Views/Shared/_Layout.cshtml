@@ -31,10 +31,10 @@ nav{
   border: none;
   border-radius: 25px;
 }
-#buggerButton :hover{
+@* #buggerButton :hover{
   background-color:#d9534f;
   transition: 0.5s;
-}
+} *@
 .custom-color {
   background-color: #ffd900 !important;
   border-color: #000000 !important;
@@ -243,10 +243,7 @@ section #produtos {
     top: 21px;
     left: 8px;
   }
-  a:hover{
-    background-color: #d9534f;
-    border-radius: 25px;
-  }
+
 
 </style>
 <!DOCTYPE html>
@@ -270,12 +267,19 @@ section #produtos {
 
   <!-- Navbar brand -->
   <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Cardapio</a>
-  <a class="nav-link text-black float-right" href="/Login/Entrar"><img src="img/iconUsuario.png" width="15"height="15"/>Login</a>
-  <!-- Collapse button -->
+  <div class="btn-toolbar" role="toolbar" aria-label="Toolbar com grupos de botões">
+    <div class="btn-group mr-2" role="group" aria-label="Primeiro grupo">
+      <a class="nav-link float-right" href="/Login/Entrar">Entrar</a>
+
     <button class="navbar-toggler second-button border border-warning" type="button" data-toggle="collapse" data-target="#navbarSupportedContent20"
     aria-controls="navbarSupportedContent20" aria-expanded="false" aria-label="Toggle navigation">
     <div class="animated-icon2"><span></span><span></span><span></span></div>
-  </button>
+  </button>  
+    
+    </div>
+  </div>
+  <!-- Collapse button -->
+  
 
   <!-- Collapsible content -->
   <div class="collapse navbar-collapse" id="navbarSupportedContent20">
