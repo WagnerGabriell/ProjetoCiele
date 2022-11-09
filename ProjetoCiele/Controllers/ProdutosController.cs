@@ -6,6 +6,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using ProjetoCiele.Entidades;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.EntityFrameworkCore;
+using MySql.EntityFrameworkCore;
+using MySql.Data;
 
 namespace ProjetoCiele.Controllers
 {
@@ -16,7 +19,6 @@ namespace ProjetoCiele.Controllers
         public ProdutosController(Contexto contexto)
         {
             db = contexto;
-            
         }
         // GET: ProdutosController
         public ActionResult Index()
@@ -56,19 +58,22 @@ namespace ProjetoCiele.Controllers
         }
 
         // GET: ProdutosController/Edit/5
+        
         public ActionResult Edit(int id)
         {
-            return View();
+            return View(db.PRODUTOS.Where(a => a.Id == id).FirstOrDefault());
         }
 
         // POST: ProdutosController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, Produtos collection)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                db.Entry(collection).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction ("Index");
             }
             catch
             {
@@ -79,7 +84,7 @@ namespace ProjetoCiele.Controllers
         // GET: ProdutosController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            return View(db.PRODUTOS.Where(a => a.Id == id).FirstOrDefault());
         }
 
         // POST: ProdutosController/Delete/5
@@ -89,7 +94,10 @@ namespace ProjetoCiele.Controllers
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                Produtos proDelete = db.PRODUTOS.Where(a => a.Id == id).FirstOrDefault();
+                db.PRODUTOS.Remove(proDelete);
+                db.SaveChanges();
+                return RedirectToAction("Index");
             }
             catch
             {
