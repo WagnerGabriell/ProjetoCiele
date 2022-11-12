@@ -21,7 +21,6 @@
     <link href="css/styles.css" rel="stylesheet" />
     <link href="fontawesome/css/all.min.css" rel="stylesheet" />
     
-    
 </head>
 <body>
     
@@ -50,12 +49,12 @@
 <div class="row">
   @foreach (var produtos in Model){
     <div class="col-sm-4">
-      <div class="card text-center bg-light mb-4">
+      <div class="card text-center bg-light mb-4 ">
         <img src="" alt="">
-        <div class="card-header">
+        <div class="card-header bg-warning">
           R$ @produtos.preco.ToString("F2")
         </div>
-        <div class="card-body" style="height:124px;">
+        <div class="card-body bg-light" style="height:124px;">
           <h5 class="card-title">@produtos.nome</h5>
           <p class="card-text">@produtos.descricao</p>
         </div>

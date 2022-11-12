@@ -1,6 +1,6 @@
 ﻿<style>
     body#LoginForm {
-        background-image: url("https://images2.alphacoders.com/276/thumb-350-276352.jpg");
+        background-image: url("/img/276352.jpg");
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
@@ -25,25 +25,7 @@
         margin-bottom: 30px;
         line-height: 24px;
     }
-
-    .login-form .form-control {
-        background: #f7f7f7 none repeat scroll 0 0;
-        border: 1px solid #d4d4d4;
-        border-radius: 4px;
-        font-size: 14px;
-        height: 50px;
-        line-height: 50px;
-    }
-
-    .main-div {
-        background: #ffffff none repeat scroll 0 0;
-        border-radius: 5px;
-        margin: 20px auto 50px;
-        max-width: 38%;
-        padding: 50px 70px 70px 71px;
-        margin-top:100px;
-    } 
-
+   
     .login-form .form-group {
         margin-bottom: 10px;
     }
@@ -77,21 +59,10 @@
         font-size: 14px;
         margin: auto;
     }
-
-    .login-form .btn.btn-primary.reset {
-        background: #ff9900 none repeat scroll 0 0;
-    }
-
     .back {
         text-align: left;
         margin-top: 10px;
     }
-
-       a {
-            color: #444444;
-            font-size: 13px;
-            
-        }
      h6{
         color: #444444;
         font-size: 13px;
@@ -99,24 +70,29 @@
      }
 
 </style>
+@{
+    ViewData["Title"] = "Login";
+}
 <html>
 
 <body id="LoginForm">
     <div class="container">
-        <div class="login-form">
-            <div class="main-div">
+        <div class="row align-item-center">
+            <div class="col-md-10 mx-auto col-lg-5 ">
+                 <div class="login-form">
+                        <div class="main-div p-4 p-md-5 border rounded bg-light ">
                 <div class="panel">
                     <h2>Login</h2>
                     <p>Entre com seu Endereço e senha</p>
                 </div>
-                <div class="card card-body">
+                <div class="">
                     @if (TempData["erro"] != null)
                     {
                         <div class="alert alert-danger">
                             @TempData["erro"]
                         </div>
                     }
-                    <form id="Login" action="/Login/Entrar" method="post">
+                    <form class=" bg-light" id="Login" action="/Login/Entrar" method="post">
                         <img src = "~/img/logo-ciely.png" width = "80" class = "mb-2">
                         <div class="form-group">
                             <input type="text" name="email" class="form-control" id="inputEmail" placeholder="E-mail">
@@ -132,10 +108,10 @@
                 </div>
                 <h6>Ainda não tem conta ? <a href="/Usuarios/Create">Cadastrar</a></h6>
         </div>
+        </div>
+        </div>
     </div>
 </div>
-    <script src="~/js/Login.js"></script>
-
     <script>
         if (@Model == 1) {
             mensagemLogado();
