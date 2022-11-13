@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8"/>
+        <title>_LayoutAdm</title>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="~/css/all.min.css"/>
+
+    </head>
+    <body>
+        <header class="bg-dark">
+            <div class=" container">
+                <nav class=" navbar navbar-dark bg-dark navbar-expand-lg">
+                    <a class="navbar-brand" href = "#">Ciele</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav">
+                            <a class="nav-item nav-link" href="/Permisao/Create">Criar Permisões</a>
+                            <a class="nav-item nav-link" href="/Permisao/Index">Listar Permisões</a>
+                            <a class="nav-item nav-link" href="/Produtos/Create">Cadastrar Produto</a>
+                            <a class="nav-item nav-link" href="/Produtos/Index">Listar Produtos</a>
+                            <a class="nav-item nav-link" href="/Usuarios/Index">Listar Clientes</a>
+                        </div>
+                    </div>
+
+                </nav>
+            </div>
+        </header>
+       <div class="container">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+       </div>
+
+        <footer class="footer bg-transparent text-center p-4 fixed-bottom">
+            <div class="container">
+                <span class="text-dark"> Copyright &copy; 2022 - Todos os direitos reservados</span>
+            </div>
+        </footer>
+         @await RenderSectionAsync("Scripts", required: false)
+         </body>
+</html>

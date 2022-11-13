@@ -45,7 +45,45 @@ namespace ProjetoCiele.Entidades
         {
             db.USUARIOS.Add(dadosTela);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return Redirect("/Home/Index");
+        }
+        public IActionResult Edit(int id)
+        {
+            return View(db.USUARIOS.Where(a => a.Id == id).FirstOrDefault());
+        }
+        [HttpPost]
+        public IActionResult Edit(int id, Contexto collection)
+        {
+            try
+            {
+                db.Entry(collection).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            catch {
+                return View("/");
+            }
+            
+        }
+        public IActionResult Delete(int id)
+        {
+            return View(db.USUARIOS.Where(a => a.Id == id).FirstOrDefault());
+        }
+        [HttpPost]
+        public IActionResult Delete(int id, Contexto collection)
+        {
+            try
+            {
+                Usuario userDelete = db.USUARIOS.Where(a => a.Id == id).FirstOrDefault();
+                db.USUARIOS.Remove(userDelete);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View("/");
+            }
+
         }
     }
 }
