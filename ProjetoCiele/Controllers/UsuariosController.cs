@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.CookiePolicy;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
 
 namespace ProjetoCiele.Entidades
 {
@@ -47,12 +48,15 @@ namespace ProjetoCiele.Entidades
             db.SaveChanges();
             return Redirect("/Home/Index");
         }
-        public IActionResult Edit(int id)
+        public ActionResult Edit(int id)
         {
             return View(db.USUARIOS.Where(a => a.Id == id).FirstOrDefault());
         }
+
+        // POST: ProdutosController/Edit/5
         [HttpPost]
-        public IActionResult Edit(int id, Contexto collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, Produtos collection)
         {
             try
             {
@@ -60,17 +64,22 @@ namespace ProjetoCiele.Entidades
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch {
-                return View("/");
+            catch
+            {
+                return View();
             }
-            
         }
-        public IActionResult Delete(int id)
+
+        // GET: ProdutosController/Delete/5
+        public ActionResult Delete(int id)
         {
             return View(db.USUARIOS.Where(a => a.Id == id).FirstOrDefault());
         }
+
+        // POST: ProdutosController/Delete/5
         [HttpPost]
-        public IActionResult Delete(int id, Contexto collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(int id, IFormCollection collection)
         {
             try
             {
@@ -81,9 +90,8 @@ namespace ProjetoCiele.Entidades
             }
             catch
             {
-                return View("/");
+                return View();
             }
-
         }
     }
 }
